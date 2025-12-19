@@ -133,6 +133,7 @@ class _SimpleDatabaseServer {
     final _SimpleDatabaseServer server = _SimpleDatabaseServer(sendPort);
     receivePort.listen((message) async {
       final _Command command = message as _Command;
+      await server._handleCommand(command);
     });
   }
 
@@ -193,7 +194,7 @@ class _SimpleDatabaseServer {
   void _doFind(String query) {
     debugPrint('Performing find: $query');
     File file = File(_path);
-    if (!file.existsSync()) {
+    if (file.existsSync()) {
       RandomAccessFile reader = file.openSync();
       List<int> buffer = List.filled(_entrySize, 0);
       while (reader.readIntoSync(buffer) == _entrySize) {

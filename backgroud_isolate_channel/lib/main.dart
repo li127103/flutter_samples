@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Background Isolate Channel',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: .fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'Background Isolate Channel'),
     );
   }
 }
@@ -161,7 +161,9 @@ class _MyHomePageState extends State<MyHomePage> {
         itemCount: _entries?.length ?? 0,
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _database == null ? null : _addDate,
+        onPressed: () {
+          _database == null ? null : _addDate();
+        },
         tooltip: 'Add',
         child: const Icon(Icons.add),
       ),
