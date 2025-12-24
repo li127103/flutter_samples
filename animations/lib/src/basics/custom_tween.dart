@@ -3,9 +3,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class TypewriterTween extends Tween<String> {
-
-  TypewriterTween({String begin = '', String end = ''}) :
-        super(begin: begin, end: end)
+  TypewriterTween({String begin = '', String end = ''})
+    : super(begin: begin, end: end);
 
   @override
   String lerp(double t) {
@@ -15,31 +14,31 @@ class TypewriterTween extends Tween<String> {
 }
 
 class CustomTweenDemo extends StatefulWidget {
+  const CustomTweenDemo({super.key});
 
-  const  CustomTweenDemo({super.key});
   static const String routerName = 'basics/custom_tweens';
+
   @override
   State<StatefulWidget> createState() => _CustomTweenDemoState();
 }
 
 class _CustomTweenDemoState extends State<CustomTweenDemo>
     with SingleTickerProviderStateMixin {
-
-  static const Duration _duration = Duration(seconds:  3);
-  static const String message =loremIpsum;
-  late final  AnimationController controller;
-  late final  Animation<String> animation;
+  static const Duration _duration = Duration(seconds: 3);
+  static const String message = loremIpsum;
+  late final AnimationController controller;
+  late final Animation<String> animation;
 
   @override
-  void initState(){
+  void initState() {
     super.initState();
 
-    controller = AnimationController(vsync: this, duration:  _duration);
-    animation =  TypewriterTween(end: message).animate(controller);
+    controller = AnimationController(vsync: this, duration: _duration);
+    animation = TypewriterTween(end: message).animate(controller);
   }
 
   @override
-  void dispose(){
+  void dispose() {
     controller.dispose();
     super.dispose();
   }
@@ -49,14 +48,58 @@ class _CustomTweenDemoState extends State<CustomTweenDemo>
     return Scaffold(
       appBar: AppBar(
         title: const Text('Custom Tween'),
+        actions: [
+          TextButton(
+            onPressed: () {
+              if (controller.status == AnimationStatus.completed) {
+                controller.reverse().whenComplete(() {
+                  setState(() {});
+                });
+              } else {
+                controller.forward().whenComplete(() {
+                  setState(() {});
+                });
+              }
+            },
+            child: Text(
+              controller.status == AnimationStatus.completed
+                  ? "Delete Essay"
+                  : "Write Essay",
+            ),
+          ),
+        ],
+      ),
+      body: SafeArea(
+        child: Container(
+          alignment: Alignment.bottomCenter,
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: AnimatedBuilder(
+                    animation: animation,
+                    builder: (BuildContext context, Widget? child) {
+                      return Text(
+                        animation.value,
+                        style: const TextStyle(
+                          fontSize: 16,
+                          fontFamily: 'SpecialElite',
+                        ),
+                      );
+                    },
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }
-
-
-
 }
-
 
 const String loremIpsum = '''
 Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium
