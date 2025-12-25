@@ -1,4 +1,5 @@
 import 'package:animations/src/basics/basics.dart';
+import 'package:animations/src/misc/misc.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -82,7 +83,13 @@ final basicDemos = [
   ),
 ];
 
-final miscDemos = [];
+final miscDemos = [
+  Demo(
+    name: 'Expandable Card',
+    route: ExpandCardDemo.routeName,
+    builder: (context) => const ExpandCardDemo(),
+  ),
+];
 
 final router = GoRouter(
   routes: [
