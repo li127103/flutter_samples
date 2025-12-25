@@ -40,7 +40,6 @@ class Demo {
 }
 
 final basicDemos = [
-
   Demo(
     name: 'AnimatedContainer',
     route: AnimatedContainerDemo.routeName,
@@ -57,9 +56,19 @@ final basicDemos = [
     builder: (context) => const AnimationControllerDemo(),
   ),
   Demo(
+    name: 'Tweens',
+    route: TweenDemo.routeName,
+    builder: (context) => const TweenDemo(),
+  ),
+  Demo(
     name: 'Custom Tween',
     route: CustomTweenDemo.routerName,
     builder: (context) => const CustomTweenDemo(),
+  ),
+  Demo(
+    name: 'Tween Sequences',
+    route: TweenSequenceDemo.routeName,
+    builder: (context) => const TweenSequenceDemo(),
   ),
   Demo(
     name: 'AnimatedBuilder',

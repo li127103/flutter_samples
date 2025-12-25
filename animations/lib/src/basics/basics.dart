@@ -4,3 +4,5 @@ export 'animated_container.dart';
 export 'animation_controller.dart';
 export 'fade_transition.dart';
 export 'page_route_builder.dart';
+export 'tween_sequence.dart';
+export 'tweens.dart';
