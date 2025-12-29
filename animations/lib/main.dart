@@ -89,6 +89,16 @@ final miscDemos = [
     route: ExpandCardDemo.routeName,
     builder: (context) => const ExpandCardDemo(),
   ),
+  Demo(
+    name: 'Carousel',
+    route: CarouselDemo.routeName,
+    builder: (context) => CarouselDemo(),
+  ),
+  Demo(
+    name: 'Focus Image',
+    route: FocusImageDemo.routeName,
+    builder: (context) => const FocusImageDemo(),
+  ),
 ];
 
 final router = GoRouter(
