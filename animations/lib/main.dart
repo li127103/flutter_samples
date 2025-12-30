@@ -109,6 +109,11 @@ final miscDemos = [
     route: FlutterAnimateDemo.routeName,
     builder: (context) => const FlutterAnimateDemo(),
   ),
+  Demo(
+    name: 'Repeating Animation',
+    route: RepeatingAnimationDemo.routeName,
+    builder: (context) => const RepeatingAnimationDemo(),
+  ),
 ];
 
 final router = GoRouter(
