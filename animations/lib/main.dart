@@ -99,6 +99,16 @@ final miscDemos = [
     route: FocusImageDemo.routeName,
     builder: (context) => const FocusImageDemo(),
   ),
+  Demo(
+    name: 'Card Swipe',
+    route: CardSwipeDemo.routeName,
+    builder: (context) => const CardSwipeDemo(),
+  ),
+  Demo(
+    name: 'Flutter Animate',
+    route: FlutterAnimateDemo.routeName,
+    builder: (context) => const FlutterAnimateDemo(),
+  ),
 ];
 
 final router = GoRouter(
