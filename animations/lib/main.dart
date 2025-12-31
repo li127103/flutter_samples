@@ -119,6 +119,11 @@ final miscDemos = [
     route: PhysicsCardDragDemo.routeName,
     builder: (context) => const PhysicsCardDragDemo(),
   ),
+  Demo(
+    name: 'AnimatedList',
+    route: AnimatedListDemo.routeName,
+    builder: (context) => const AnimatedListDemo(),
+  ),
 ];
 
 final router = GoRouter(
