@@ -129,6 +129,11 @@ final miscDemos = [
     route: AnimatedPositionedDemo.routeName,
     builder: (context) => const AnimatedPositionedDemo(),
   ),
+  Demo(
+    name: 'AnimatedSwitcher',
+    route: AnimatedSwitcherDemo.routeName,
+    builder: (context) => const AnimatedSwitcherDemo(),
+  ),
 ];
 
 final router = GoRouter(

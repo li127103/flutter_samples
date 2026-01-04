@@ -7,3 +7,4 @@ export 'repeating_animation.dart';
 export 'physics_card_drag.dart';
 export 'animated_list.dart';
 export 'animated_positioned.dart';
+export 'animated_switcher.dart';
