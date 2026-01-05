@@ -134,6 +134,16 @@ final miscDemos = [
     route: AnimatedSwitcherDemo.routeName,
     builder: (context) => const AnimatedSwitcherDemo(),
   ),
+  Demo(
+    name: 'Hero Animation',
+    route: HeroAnimationDemo.routeName,
+    builder: (context) => const HeroAnimationDemo(),
+  ),
+  Demo(
+    name: 'Curved Animation',
+    route: CurvedAnimationDemo.routeName,
+    builder: (context) => const CurvedAnimationDemo(),
+  ),
 ];
 
 final router = GoRouter(
